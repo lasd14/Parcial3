@@ -17,12 +17,15 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
         BaseDeDatos.execSQL("create table usertable(user text primary key, password text)");
-        BaseDeDatos.execSQL("create table recetas(producto text, foto text, ingrediente1 text, ingrediente2 text, ingrediente3 text, ingrediente4 text, ingrediente5 text, preparacion text)");
+        BaseDeDatos.execSQL("insert into usertable(user, password)" + "values('admin1', 'admin')");
+        BaseDeDatos.execSQL("insert into usertable(user, password)" + "values('consumer1', 'consumer')");
+        BaseDeDatos.execSQL("create table recetas(producto text primary key, foto text, ingrediente1 text, ingrediente2 text, ingrediente3 text, ingrediente4 text, ingrediente5 text, preparacion text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase BaseDeDatos, int i, int i1) {
         BaseDeDatos.execSQL("drop table if exists usertable");
+        BaseDeDatos.execSQL("drop table if exists recetas");
     }
 
     //Insertar usuario

@@ -48,6 +48,18 @@
         android:background="#FF3551"
         android:textColor="@android:color/white"
         android:id="@+id/botonacceder"
-        android:text="Acceder" />
+        android:text="Acceder"
+        android:onClick="Logearse"/>
+
+<!--    <Button-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="45dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="45dp"-->
+<!--        android:background="#FF3551"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:id="@+id/boton"-->
+<!--        android:text="" />-->
 
 </LinearLayout>
