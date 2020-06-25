@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (check == true){
                     Toast.makeText(MainActivity.this, "Inicio Exitoso", Toast.LENGTH_SHORT).show();
-                    Intent login = new Intent(getApplicationContext(), RecetasActivity.class);
+                    Intent login = new Intent(getApplicationContext(), OpcionesActivity.class);
                     startActivity(login);
                 } else {
                     Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();

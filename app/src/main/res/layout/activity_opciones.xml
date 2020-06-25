@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpcionesActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25sp"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:text="Bienvenido a"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_light"
+        android:text="Glovppetito42 Eats"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="25sp"
+        android:background="@color/colorAccent"
+        android:text="Recetas Disponibles"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/btnrecetas"
+        android:onClick="Recetas"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="25sp"
+        android:background="@color/colorPrimary"
+        android:text="Agregar Receta"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/btnagregar"
+        android:onClick="Agregar"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="25sp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Recetas Guardadas"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/btnfavoritas"
+        android:onClick="Favoritas"/>
+
+
+</LinearLayout>
