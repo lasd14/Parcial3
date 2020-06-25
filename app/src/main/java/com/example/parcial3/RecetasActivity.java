@@ -2,13 +2,16 @@ package com.example.parcial3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.parcial3.Adaptador.ListViewAdapterRecetas;
 import com.example.parcial3.entidades.Recetas;
@@ -22,6 +25,7 @@ public class RecetasActivity extends AppCompatActivity {
 //    private static final String URL_INTERNET = "https://d25dk4h1q4vl9b.cloudfront.net/media/images/menu-content/CR/hamburguesas-de-carne/hamburguesa-con-queso_new_cr.png";
     ListView lvtrecetas;
     Button btnactualizar;
+    String producto, foto, ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, preparacion;
 
 
     @Override
@@ -30,6 +34,7 @@ public class RecetasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recetas);
 
         this.InicializarControles();
+        seleccionarReceta();
 
     }
 
@@ -68,9 +73,27 @@ public class RecetasActivity extends AppCompatActivity {
 
     }
 
+    private void seleccionarReceta(){
+        lvtrecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent detalles = new Intent(getApplicationContext(), DetallesActivity.class);
+                getIntent().putExtra("producto", producto);
+                getIntent().putExtra("foto", foto);
+                getIntent().putExtra("ingrediente1", ingrediente1);
+                getIntent().putExtra("ingrediente2", ingrediente2);
+                getIntent().putExtra("ingrediente3", ingrediente3);
+                getIntent().putExtra("ingrediente4", ingrediente4);
+                getIntent().putExtra("ingrediente5", ingrediente5);
+                getIntent().putExtra("preparacion", preparacion);
+                startActivity(detalles);
+                Toast.makeText(RecetasActivity.this, "Detalles de la receta N°"+ String.valueOf(i+1), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-//    private void LoadImageByInternetUrlWithPicasso(){
-//        Picasso.get().load(URL_INTERNET).into(ivfoto);
-//    }
+
+
+
 
 }

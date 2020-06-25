@@ -3,6 +3,7 @@ package com.example.parcial3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -81,12 +82,13 @@ public class AgregarActivity extends AppCompatActivity {
             txtpreparacion.setText("");
             Toast.makeText(this, "Se ha creado una receta", Toast.LENGTH_SHORT).show();
 
+            Intent intent = new Intent(getApplicationContext(), OpcionesActivity.class);
+            startActivity(intent);
+
+
         } else {
             Toast.makeText(this, "Debes llenar los campos", Toast.LENGTH_SHORT).show();
         }
-
-
-
 
     }
 

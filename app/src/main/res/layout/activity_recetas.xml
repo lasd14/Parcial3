@@ -14,9 +14,8 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:textSize="30dp"
-        android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:text="Recetas Fast Food" />
+        android:text="Recetas" />
 
     <Button
         android:layout_width="match_parent"
