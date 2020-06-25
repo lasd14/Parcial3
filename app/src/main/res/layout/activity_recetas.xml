@@ -18,10 +18,24 @@
         android:textStyle="bold"
         android:text="Recetas Fast Food" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="25sp"
+        android:layout_marginBottom="15sp"
+        android:background="@color/colorAccent"
+        android:text="Actualiar Ultimas Recetas"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/btnactualizar"
+        android:onClick="LoadListview"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lstrecetas"/>
+        android:id="@+id/lvtrecetas"/>
 
 
 

@@ -3,46 +3,54 @@ package com.example.parcial3.entidades;
 public class Recetas {
 
     private String producto;
-    private Integer foto;
-    private String ingredientes;
+    private String foto;
+    private String ingrediente1;
+    private String ingrediente2;
+    private String ingrediente3;
+    private String ingrediente4;
+    private String ingrediente5;
     private String preparacion;
 
-    public Recetas(String producto, Integer foto, String ingredientes, String preparacion) {
-        this.producto = producto;
-        this.foto = foto;
-        this.ingredientes = ingredientes;
-        this.preparacion = preparacion;
+    public Recetas(String prod, String ft, String ing1, String ing2, String ing3, String ing4, String ing5 , String pre) {
+        producto = prod;
+        foto = ft;
+        ingrediente1 = ing1;
+        ingrediente2 = ing2;
+        ingrediente3 = ing3;
+        ingrediente4 = ing4;
+        ingrediente5 = ing5;
+        preparacion = pre;
     }
 
     public String getProducto() {
         return producto;
     }
 
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
-    public Integer getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(Integer foto) {
-        this.foto = foto;
+    public String getIngrediente1() {
+        return ingrediente1;
     }
 
-    public String getIngredientes() {
-        return ingredientes;
+    public String getIngrediente2() {
+        return ingrediente2;
     }
 
-    public void setIngredientes(String ingredientes) {
-        this.ingredientes = ingredientes;
+    public String getIngrediente3() {
+        return ingrediente3;
+    }
+
+    public String getIngrediente4() {
+        return ingrediente4;
+    }
+
+    public String getIngrediente5() {
+        return ingrediente5;
     }
 
     public String getPreparacion() {
         return preparacion;
-    }
-
-    public void setPreparacion(String preparacion) {
-        this.preparacion = preparacion;
     }
 }
