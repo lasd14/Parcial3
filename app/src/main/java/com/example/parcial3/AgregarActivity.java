@@ -39,7 +39,7 @@ public class AgregarActivity extends AppCompatActivity {
 
     public void RegistrarRecetas(View view){
         //Hemos creado la conexion con la base de datos
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
         //Para tomar lo que se esta escribiendo
