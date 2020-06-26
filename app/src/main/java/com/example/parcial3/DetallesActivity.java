@@ -2,7 +2,10 @@ package com.example.parcial3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -16,17 +19,13 @@ public class DetallesActivity extends AppCompatActivity {
     TextView tvdetalleproducto, tvdetallepreparacion, tvdetalleing1, tvdetalleing2, tvdetalleing3, tvdetalleing4, tvdetalleing5;
     ImageView ivdetallefoto;
 
-    String producto, foto, ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, preparacion;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles);
 
         this.InicializarControles();
-        getAndSetIntentData();
-
+        DetallesReceta();
     }
 
     private void InicializarControles() {
@@ -42,25 +41,34 @@ public class DetallesActivity extends AppCompatActivity {
 
     }
 
-    void getAndSetIntentData(){
+    private void DetallesReceta(){
 
-            producto     = getIntent().getStringExtra("producto");
-            foto         = getIntent().getStringExtra("foto");
-            ingrediente1 = getIntent().getStringExtra("ingrediente1");
-            ingrediente2 = getIntent().getStringExtra("ingrediente2");
-            ingrediente3 = getIntent().getStringExtra("ingrediente3");
-            ingrediente4 = getIntent().getStringExtra("ingrediente4");
-            ingrediente5 = getIntent().getStringExtra("ingrediente5");
-            preparacion = getIntent().getStringExtra("preparacion");
+        try {
+            AdminSQLiteOpenHelper recetasSQLiteHelper = new AdminSQLiteOpenHelper(this,"dbparcial3.db",null,1);
+            SQLiteDatabase BaseDeDatos = recetasSQLiteHelper.getReadableDatabase();
 
-            tvdetalleproducto.setText(producto);
-            Picasso.get().load(foto);
-            tvdetallepreparacion.setText(preparacion);
-            tvdetalleing1.setText(ingrediente1);
-            tvdetalleing2.setText(ingrediente2);
-            tvdetalleing3.setText(ingrediente3);
-            tvdetalleing4.setText(ingrediente4);
-            tvdetalleing5.setText(ingrediente5);
+            if (BaseDeDatos !=null){
+                String[] campos = new String[] {"producto", "foto", "ingrediente1", "ingrediente2", "ingrediente3", "ingrediente4", "ingrediente5", "preparacion"};
+                Intent i = getIntent();
+                String nombre = i.getStringExtra("producto");
+                String[] args = new String[]{nombre};
+                Cursor cursor = BaseDeDatos.query("recetas", campos, "producto = ?", args, null, null, null);
+                if (cursor.moveToFirst()){
+                    do {
+                        tvdetalleproducto.setText(cursor.getString(0));
+                        Picasso.get().load(cursor.getString(1)).into(ivdetallefoto);
+                        tvdetalleing1.setText(cursor.getString(2));
+                        tvdetalleing2.setText(cursor.getString(3));
+                        tvdetalleing3.setText(cursor.getString(4));
+                        tvdetalleing4.setText(cursor.getString(5));
+                        tvdetalleing5.setText(cursor.getString(6));
+                        tvdetallepreparacion.setText(cursor.getString(7));
+                    }while (cursor.moveToNext());
+                }
+            }
+        }catch (Exception e){
+            Toast.makeText(this,"No tienes data" + e.getMessage().toString(), Toast.LENGTH_LONG).show();
         }
+    }
 }
 

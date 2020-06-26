@@ -3,23 +3,17 @@ package com.example.parcial3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-
-import com.example.parcial3.Adaptador.ListViewAdapterRecetas;
-import com.example.parcial3.entidades.Recetas;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class OpcionesActivity extends AppCompatActivity {
 
     Button btnrecetas, btnagregar, btnfavoritas;
     ListView lvrecetas;
+    String producto, foto, ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, preparacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +21,6 @@ public class OpcionesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_opciones);
 
         this.InicializarControles();
-
     }
 
 
@@ -42,7 +35,26 @@ public class OpcionesActivity extends AppCompatActivity {
 
 
     public void Recetas(View view) {
+
         Intent recetas = new Intent(getApplicationContext(), RecetasActivity.class);
+
+            recetas.putExtra("producto", producto);
+            recetas.putExtra("foto", foto);
+            recetas.putExtra("ingrediente1", ingrediente1);
+            recetas.putExtra("ingrediente2", ingrediente2);
+            recetas.putExtra("ingrediente3", ingrediente3);
+            recetas.putExtra("ingrediente4", ingrediente4);
+            recetas.putExtra("ingrediente5", ingrediente5);
+            recetas.putExtra("preparacion", preparacion);
+            Log.e(producto, "Estamos aqui");
+        producto     = getIntent().getStringExtra("producto");
+        foto         = getIntent().getStringExtra("foto");
+        ingrediente1 = getIntent().getStringExtra("ingrediente1");
+        ingrediente2 = getIntent().getStringExtra("ingrediente2");
+        ingrediente3 = getIntent().getStringExtra("ingrediente3");
+        ingrediente4 = getIntent().getStringExtra("ingrediente4");
+        ingrediente5 = getIntent().getStringExtra("ingrediente5");
+        preparacion  = getIntent().getStringExtra("preparacion");
         startActivity(recetas);
     }
 

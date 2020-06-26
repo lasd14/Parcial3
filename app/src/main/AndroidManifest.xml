@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetallesActivity"></activity>
-        <activity android:name=".FavoritasActivity" />
-        <activity android:name=".AgregarActivity" />
+        <activity android:name=".DetallesActivity" android:parentActivityName=".RecetasActivity"></activity>
+        <activity android:name=".FavoritasActivity" android:parentActivityName=".OpcionesActivity"/>
+        <activity android:name=".AgregarActivity" android:parentActivityName=".OpcionesActivity"/>
         <activity android:name=".OpcionesActivity" />
-        <activity android:name=".RecetasActivity" />
+        <activity android:name=".RecetasActivity" android:parentActivityName=".OpcionesActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

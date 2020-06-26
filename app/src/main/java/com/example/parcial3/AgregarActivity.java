@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -83,8 +86,16 @@ public class AgregarActivity extends AppCompatActivity {
             Toast.makeText(this, "Se ha creado una receta", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(getApplicationContext(), OpcionesActivity.class);
+            intent.putExtra("producto", producto);
+            intent.putExtra("foto", foto);
+            intent.putExtra("ingrediente1", ingrediente1);
+            intent.putExtra("ingrediente2", ingrediente2);
+            intent.putExtra("ingrediente3", ingrediente3);
+            intent.putExtra("ingrediente4", ingrediente4);
+            intent.putExtra("ingrediente5", ingrediente5);
+            intent.putExtra("preparacion", preparacion);
+            Log.e(producto, "Estamos aqui");
             startActivity(intent);
-
 
         } else {
             Toast.makeText(this, "Debes llenar los campos", Toast.LENGTH_SHORT).show();

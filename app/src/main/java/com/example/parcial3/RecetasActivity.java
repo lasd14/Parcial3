@@ -9,24 +9,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.parcial3.Adaptador.ListViewAdapterRecetas;
 import com.example.parcial3.entidades.Recetas;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecetasActivity extends AppCompatActivity {
 
-//    private static final String URL_INTERNET = "https://d25dk4h1q4vl9b.cloudfront.net/media/images/menu-content/CR/hamburguesas-de-carne/hamburguesa-con-queso_new_cr.png";
     ListView lvtrecetas;
-    Button btnactualizar;
-    String producto, foto, ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, preparacion;
-
+    EditText txtborrar;
+    Button btnactualizar, btnborrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +32,32 @@ public class RecetasActivity extends AppCompatActivity {
         this.InicializarControles();
         seleccionarReceta();
 
+
     }
 
     private void InicializarControles(){
-        lvtrecetas = (ListView)findViewById(R.id.lvtrecetas);
+        lvtrecetas    = (ListView)findViewById(R.id.lvtrecetas);
         btnactualizar = (Button)findViewById(R.id.btnactualizar);
+        txtborrar     = (EditText)findViewById(R.id.txtborrar);
+        btnborrar     = (Button)findViewById(R.id.btnborrar);
     }
+
+    public void Eliminar(View view){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+        String[] campos = new String[] {"producto", "foto", "ingrediente1", "ingrediente2", "ingrediente3", "ingrediente4", "ingrediente5", "preparacion"};
+        Intent i = getIntent();
+        String nombre = i.getStringExtra("producto");
+        String[] args = new String[]{nombre};
+        BaseDeDatos.delete("recetas", "producto=?", args);
+
+
+
+    }
+
+
 
     public void LoadListview(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
@@ -74,20 +90,15 @@ public class RecetasActivity extends AppCompatActivity {
     }
 
     private void seleccionarReceta(){
+
         lvtrecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent detalles = new Intent(getApplicationContext(), DetallesActivity.class);
-                getIntent().putExtra("producto", producto);
-                getIntent().putExtra("foto", foto);
-                getIntent().putExtra("ingrediente1", ingrediente1);
-                getIntent().putExtra("ingrediente2", ingrediente2);
-                getIntent().putExtra("ingrediente3", ingrediente3);
-                getIntent().putExtra("ingrediente4", ingrediente4);
-                getIntent().putExtra("ingrediente5", ingrediente5);
-                getIntent().putExtra("preparacion", preparacion);
+                String productoescogido = ((Recetas)adapterView.getItemAtPosition(i)).getProducto();
+                detalles.putExtra("producto", productoescogido);
+                Toast.makeText(RecetasActivity.this, "Receta: "+ productoescogido, Toast.LENGTH_SHORT).show();
                 startActivity(detalles);
-                Toast.makeText(RecetasActivity.this, "Detalles de la receta N°"+ String.valueOf(i+1), Toast.LENGTH_SHORT).show();
             }
         });
     }
