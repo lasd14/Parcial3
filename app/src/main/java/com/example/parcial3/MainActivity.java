@@ -3,7 +3,9 @@ package com.example.parcial3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -42,9 +44,26 @@ public class MainActivity extends AppCompatActivity {
                 String password = txtpassword.getText().toString();
                 Boolean checkuserpass = BaseDeDatos.userpassword(user,password);
                     if (checkuserpass==true){
-                        Toast.makeText(MainActivity.this, "Inicio Exitoso", Toast.LENGTH_SHORT).show();
-                        Intent login = new Intent(getApplicationContext(), OpcionesActivity.class);
-                        startActivity(login);
+                        if (user.equals("admin1") && password.equals("admin")){
+                            SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor edit = preferences1.edit();
+                            edit.putString("user", user);
+                            edit.putString("password", password);
+                            edit.commit();
+                            Toast.makeText(MainActivity.this, "Inicio Exitoso como Administrador", Toast.LENGTH_SHORT).show();
+                            Intent login = new Intent(getApplicationContext(), OpcionesActivity.class);
+                            startActivity(login);
+                        } else if (user.equals("consumer1") && password.equals("consumer")){
+                            SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor edit = preferences1.edit();
+                            edit.putString("user", user);
+                            edit.putString("password", password);
+                            edit.commit();
+                            Toast.makeText(MainActivity.this, "Inicio Exitoso como Usuario", Toast.LENGTH_SHORT).show();
+                            Intent login = new Intent(getApplicationContext(), OpcionesActivity.class);
+                            startActivity(login);
+                        }
+
                     }else {
                         Toast.makeText(MainActivity.this, "No se encuentra registrado", Toast.LENGTH_SHORT).show();
                     }

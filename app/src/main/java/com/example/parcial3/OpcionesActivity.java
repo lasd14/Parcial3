@@ -2,17 +2,21 @@ package com.example.parcial3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class OpcionesActivity extends AppCompatActivity {
 
     Button btnrecetas, btnagregar, btnfavoritas;
     ListView lvrecetas;
+    TextView tipousuario;
     String producto, foto, ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, preparacion;
 
     @Override
@@ -21,6 +25,18 @@ public class OpcionesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_opciones);
 
         this.InicializarControles();
+
+
+        SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
+        String userinfo = preferences1.getString("user", "");
+        tipousuario.setText(userinfo);
+
+        if (userinfo.equals("admin1")){
+            btnfavoritas.setVisibility(View.GONE);
+        } else if (userinfo.equals("consumer1")){
+            btnagregar.setVisibility(View.GONE);
+        }
+
     }
 
 
@@ -29,6 +45,7 @@ public class OpcionesActivity extends AppCompatActivity {
         btnrecetas   = (Button)findViewById(R.id.btnrecetas);
         btnagregar   = (Button)findViewById(R.id.btnagregar);
         btnfavoritas = (Button)findViewById(R.id.btnfavoritas);
+        tipousuario  = (TextView)findViewById(R.id.tipousuario);
         lvrecetas    = (ListView)findViewById(R.id.lvtrecetas);
 
     }

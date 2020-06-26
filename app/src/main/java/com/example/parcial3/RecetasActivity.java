@@ -42,22 +42,6 @@ public class RecetasActivity extends AppCompatActivity {
         btnborrar     = (Button)findViewById(R.id.btnborrar);
     }
 
-    public void Eliminar(View view){
-
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
-        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-
-        String[] campos = new String[] {"producto", "foto", "ingrediente1", "ingrediente2", "ingrediente3", "ingrediente4", "ingrediente5", "preparacion"};
-        Intent i = getIntent();
-        String nombre = i.getStringExtra("producto");
-        String[] args = new String[]{nombre};
-        BaseDeDatos.delete("recetas", "producto=?", args);
-
-
-
-    }
-
-
 
     public void LoadListview(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
@@ -86,6 +70,29 @@ public class RecetasActivity extends AppCompatActivity {
 
         ListViewAdapterRecetas adapter = new ListViewAdapterRecetas(getApplicationContext(), recetas);
         lvtrecetas.setAdapter(adapter);
+
+    }
+
+    public void Eliminar(View view){
+        try {
+            String producto = txtborrar.getText().toString();
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
+            SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+            if (!producto.isEmpty()){
+                if (BaseDeDatos != null){
+                    BaseDeDatos.delete("recetas", "producto='"+producto+"'", null);
+                    Toast.makeText(this, "Se ha eliminado la receta", Toast.LENGTH_SHORT).show();
+                    txtborrar.setText("");
+                }
+            } else {
+                Toast.makeText(this, "Llene el campo para eliminar", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e){
+            Toast.makeText(this, "Error: "+ e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
