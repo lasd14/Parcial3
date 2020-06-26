@@ -6,8 +6,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,13 +35,18 @@ public class MainActivity extends AppCompatActivity {
         txtpassword  = (EditText)findViewById(R.id.txtpassword);
         botonacceder = (Button)findViewById(R.id.botonacceder);
 
+        //Aqui es el onclick del boton acceder
         botonacceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user     = txtusuario.getText().toString();
                 String password = txtpassword.getText().toString();
                 Boolean checkuserpass = BaseDeDatos.userpassword(user,password);
+                //Verificamos que el usuario este registrado en la BD (Esa insercion se hizo de manera manual, lo puede ver en AdminSQLiteOpenHelper)
+                //Para el usuario administrador es "admin1" y password "admin"
+                //Para el usuario comun es "consumer1" y password "consumer"
                     if (checkuserpass==true){
+                        //Aqui trabajamos con sharedpreferences para delimitar lo que pueda ver y hacer cada uno en las siguientes pantallas
                         if (user.equals("admin1") && password.equals("admin")){
                             SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
                             SharedPreferences.Editor edit = preferences1.edit();

@@ -2,7 +2,9 @@ package com.example.parcial3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -31,6 +33,14 @@ public class RecetasActivity extends AppCompatActivity {
 
         this.InicializarControles();
         seleccionarReceta();
+
+        SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
+        String userinfo = preferences1.getString("user", "");
+
+        if (userinfo.equals("consumer1")){
+            txtborrar.setVisibility(View.GONE);
+            btnborrar.setVisibility(View.GONE);
+        }
 
 
     }

@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetallesActivity" android:parentActivityName=".RecetasActivity"></activity>
-        <activity android:name=".FavoritasActivity" android:parentActivityName=".OpcionesActivity"/>
-        <activity android:name=".AgregarActivity" android:parentActivityName=".OpcionesActivity"/>
-        <activity android:name=".OpcionesActivity" />
-        <activity android:name=".RecetasActivity" android:parentActivityName=".OpcionesActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".DetallesActivity" android:parentActivityName=".RecetasActivity" android:label="Detalles"></activity>
+        <activity android:name=".FavoritasActivity" android:parentActivityName=".OpcionesActivity" android:label="Recetas Favoritas"/>
+        <activity android:name=".AgregarActivity" android:parentActivityName=".OpcionesActivity" android:label="Agregar Recetas"/>
+        <activity android:name=".OpcionesActivity" android:label="Menú"/>
+        <activity android:name=".RecetasActivity" android:parentActivityName=".OpcionesActivity" android:label="Recetas Disponibles"/>
+        <activity android:name=".MainActivity" android:label="Glovppetito42 Eats">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

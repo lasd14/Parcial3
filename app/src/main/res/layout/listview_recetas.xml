@@ -13,6 +13,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginLeft="10sp"
             android:id="@+id/ivfoto"/>
 
         <LinearLayout
@@ -20,53 +21,98 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:id="@+id/tvproducto"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="15sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#145CC0"
+                    android:text="Producto: "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvproducto"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#145CC0"
+                    android:text="Preparacion: "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvpreparacion"/>
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:id="@+id/tvpreparacion"/>
+                android:textColor="#145CC0"
+                android:text="Ingredientes: "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 android:id="@+id/tving1"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 android:id="@+id/tving2"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 android:id="@+id/tving3"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 android:id="@+id/tving4"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="15sp"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 android:id="@+id/tving5"/>
 
 

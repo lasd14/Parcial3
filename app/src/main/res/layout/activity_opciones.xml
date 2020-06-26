@@ -33,7 +33,7 @@
         android:layout_marginTop="5sp"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/colorPrimary"
         android:text="Glovppetito42 Eats"/>
 
     <Button
@@ -75,96 +75,6 @@
         android:id="@+id/btnfavoritas"
         android:visibility="visible"
         android:onClick="Favoritas"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleproducto"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="195dp"
-        android:visibility="invisible"
-        android:id="@+id/ivdetallefoto"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="15sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetallepreparacion"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="15sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleing1"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="10sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleing2"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="10sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleing3"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="10sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleing4"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="10sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        android:id="@+id/tvdetalleing5"/>
 
 
 </LinearLayout>
