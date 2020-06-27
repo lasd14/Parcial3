@@ -20,6 +20,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         BaseDeDatos.execSQL("insert into usertable(user, password)" + "values('admin1', 'admin')");
         BaseDeDatos.execSQL("insert into usertable(user, password)" + "values('consumer1', 'consumer')");
         BaseDeDatos.execSQL("create table recetas(producto text primary key, foto text, ingrediente1 text, ingrediente2 text, ingrediente3 text, ingrediente4 text, ingrediente5 text, preparacion text)");
+        BaseDeDatos.execSQL("create table favoritos(producto text, foto text, preparacion text, comentario text)");
     }
 
     @Override

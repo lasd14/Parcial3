@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ public class RecetasActivity extends AppCompatActivity {
     ListView lvtrecetas;
     EditText txtborrar;
     Button btnactualizar, btnborrar;
+//    ImageView botonlike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class RecetasActivity extends AppCompatActivity {
         btnactualizar = (Button)findViewById(R.id.btnactualizar);
         txtborrar     = (EditText)findViewById(R.id.txtborrar);
         btnborrar     = (Button)findViewById(R.id.btnborrar);
+//        botonlike     = (ImageView)findViewById(R.id.btnlike);
     }
 
 
@@ -114,11 +118,27 @@ public class RecetasActivity extends AppCompatActivity {
                 Intent detalles = new Intent(getApplicationContext(), DetallesActivity.class);
                 String productoescogido = ((Recetas)adapterView.getItemAtPosition(i)).getProducto();
                 detalles.putExtra("producto", productoescogido);
+                String fotoescogida = ((Recetas)adapterView.getItemAtPosition(i)).getFoto();
+                detalles.putExtra("foto", fotoescogida);
+                String preparacionescogida = ((Recetas)adapterView.getItemAtPosition(i)).getPreparacion();
+                detalles.putExtra("preparacion", preparacionescogida);
                 Toast.makeText(RecetasActivity.this, "Receta: "+ productoescogido, Toast.LENGTH_SHORT).show();
                 startActivity(detalles);
             }
         });
     }
+    
+//    public void DarLike(View view){
+//
+//        botonlike.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent detalles = new Intent(getApplicationContext(), OpcionesActivity.class);
+//                startActivity(detalles);
+//            }
+//        });
+//
+//    }
 
 
 

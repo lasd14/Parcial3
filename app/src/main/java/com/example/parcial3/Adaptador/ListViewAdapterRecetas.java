@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,6 +54,18 @@ public class ListViewAdapterRecetas extends ArrayAdapter<Recetas> {
 
         TextView preparacion = (TextView)item.findViewById(R.id.tvpreparacion);
         preparacion.setText(recetas.get(position).getPreparacion());
+
+//        final ImageView botonmegusta = (ImageView) item.findViewById(R.id.btnlike);
+//        botonmegusta.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (botonmegusta.isPressed()){
+//                    botonmegusta.setImageResource(R.drawable.likeon);
+//                } else if (botonmegusta.isPressed()){
+//                    botonmegusta.setImageResource(R.drawable.like);
+//                }
+//            }
+//        });
 
         return item;
 
