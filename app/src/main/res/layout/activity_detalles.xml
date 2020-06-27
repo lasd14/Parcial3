@@ -138,7 +138,8 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:textColor="#145CC0"
-        android:text="Dejanos tu comentario:"/>
+        android:text="Dejanos tu comentario:"
+        android:id="@+id/comentario"/>
 
     <EditText
         android:layout_width="match_parent"

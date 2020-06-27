@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 public class DetallesActivity extends AppCompatActivity {
 
-    TextView tvdetalleproducto, tvdetallepreparacion, tvdetalleing1, tvdetalleing2, tvdetalleing3, tvdetalleing4, tvdetalleing5;
+    TextView tvdetalleproducto, tvdetallepreparacion, tvdetalleing1, tvdetalleing2, tvdetalleing3, tvdetalleing4, tvdetalleing5, comentario;
     ImageView ivdetallefoto;
     EditText txtcomentario;
     Button btnguardadas;
@@ -41,6 +41,7 @@ public class DetallesActivity extends AppCompatActivity {
         if (userinfo.equals("admin1")){
             btnguardadas.setVisibility(View.GONE);
             txtcomentario.setVisibility(View.GONE);
+            comentario.setVisibility(View.GONE);
         } else if (userinfo.equals("consumer1")){
             btnguardadas.setVisibility(View.VISIBLE);
             txtcomentario.setVisibility(View.VISIBLE);
@@ -60,6 +61,7 @@ public class DetallesActivity extends AppCompatActivity {
         tvdetalleing3        = (TextView)findViewById(R.id.tvdetalleing3);
         tvdetalleing4        = (TextView)findViewById(R.id.tvdetalleing4);
         tvdetalleing5        = (TextView)findViewById(R.id.tvdetalleing5);
+        comentario           = (TextView)findViewById(R.id.comentario);
         btnguardadas         = (Button)findViewById(R.id.btnguardadas);
         txtcomentario        = (EditText)findViewById(R.id.txtcomentario);
 
