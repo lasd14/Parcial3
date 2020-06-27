@@ -26,7 +26,7 @@ public class OpcionesActivity extends AppCompatActivity {
 
         this.InicializarControles();
 
-
+        //Sharedpreferences para designar que pueden ver los usuarios y que no
         SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
         String userinfo = preferences1.getString("user", "");
         tipousuario.setText(userinfo);
@@ -39,7 +39,7 @@ public class OpcionesActivity extends AppCompatActivity {
 
     }
 
-
+    //Metodo para inicializar controles
     private void InicializarControles(){
 
         btnrecetas   = (Button)findViewById(R.id.btnrecetas);
@@ -49,7 +49,6 @@ public class OpcionesActivity extends AppCompatActivity {
         lvrecetas    = (ListView)findViewById(R.id.lvtrecetas);
 
     }
-
 
     public void Recetas(View view) {
 
@@ -75,11 +74,13 @@ public class OpcionesActivity extends AppCompatActivity {
         startActivity(recetas);
     }
 
+    //Metodo de boton para ir a agregar
     public void Agregar(View view) {
         Intent agregar = new Intent(getApplicationContext(), AgregarActivity.class);
         startActivity(agregar);
     }
 
+    //Metodo de boton para ir a favoritos
     public void Favoritas(View view) {
         Intent favoritos = new Intent(getApplicationContext(), FavoritasActivity.class);
         startActivity(favoritos);

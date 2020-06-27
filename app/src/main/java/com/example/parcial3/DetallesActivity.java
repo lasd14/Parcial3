@@ -65,9 +65,11 @@ public class DetallesActivity extends AppCompatActivity {
 
     }
 
+    //Metodo en el que llenamos los diferentes TextViews con los campos de la BD
     private void DetallesReceta(){
 
         try {
+            //Abrimos la BD
             AdminSQLiteOpenHelper recetasSQLiteHelper = new AdminSQLiteOpenHelper(this,"dbparcial3.db",null,1);
             SQLiteDatabase BaseDeDatos = recetasSQLiteHelper.getReadableDatabase();
 
@@ -95,30 +97,36 @@ public class DetallesActivity extends AppCompatActivity {
         }
     }
 
+    //Metodo para guardar los favoritos
     public void Favoritos(View view){
+        //Llamamos al intent
         Intent i = getIntent();
+        //Traemos lo que deseamos guardar
         String nombre = i.getStringExtra("producto");
         String foto = i.getStringExtra("foto");
         String preparacion = i.getStringExtra("preparacion");
+        //Comentario para que el usuario coloque lo guardamos
         String comentario = txtcomentario.getText().toString();
+        //Abrimos la BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"dbparcial3.db",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         if(BaseDeDatos !=null){
             try{
+                //Llenamos la tabla
                 ContentValues favoritos = new ContentValues();
                 favoritos.put("producto",nombre);
                 favoritos.put("foto",foto);
                 favoritos.put("preparacion",preparacion);
                 favoritos.put("comentario",comentario);
                 BaseDeDatos.insert("favoritos",null,favoritos);
-                Toast.makeText(getApplicationContext(),"Guardado correctamente",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Se ha agregado a tus favoritos!",Toast.LENGTH_SHORT).show();
+                //Cerramos la BD
                 BaseDeDatos.close();
+                //Limpiamos el EditText
                 txtcomentario.setText("");
 
             }catch (Exception e){
-
-                Toast.makeText(this,"Error" + e.getMessage().toString(), Toast.LENGTH_LONG).show();
-
+                Toast.makeText(this,"Error " + e.getMessage().toString(), Toast.LENGTH_LONG).show();
 
             }
 

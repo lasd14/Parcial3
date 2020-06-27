@@ -27,7 +27,6 @@ public class RecetasActivity extends AppCompatActivity {
     ListView lvtrecetas;
     EditText txtborrar;
     Button btnactualizar, btnborrar;
-//    ImageView botonlike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,7 @@ public class RecetasActivity extends AppCompatActivity {
         this.InicializarControles();
         seleccionarReceta();
 
+        //Sharedpreferences para designar que pueden ver los usuarios y que no
         SharedPreferences preferences1 = getSharedPreferences("login1", Context.MODE_PRIVATE);
         String userinfo = preferences1.getString("user", "");
 
@@ -48,16 +48,18 @@ public class RecetasActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para inicializar controles
     private void InicializarControles(){
         lvtrecetas    = (ListView)findViewById(R.id.lvtrecetas);
         btnactualizar = (Button)findViewById(R.id.btnactualizar);
         txtborrar     = (EditText)findViewById(R.id.txtborrar);
         btnborrar     = (Button)findViewById(R.id.btnborrar);
-//        botonlike     = (ImageView)findViewById(R.id.btnlike);
     }
 
 
+    //Metodo para cargar en el listview nuestros datoss de la BD agregados por el admin
     public void LoadListview(View view){
+        //Abrimos la BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
@@ -87,6 +89,8 @@ public class RecetasActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para eliminar una receta, se debe colocar el producto ya que actua como primary key y luego darle al boton para borrarlo
+    //Luego debemos actualizar y veremos que no estara
     public void Eliminar(View view){
         try {
             String producto = txtborrar.getText().toString();
@@ -107,9 +111,9 @@ public class RecetasActivity extends AppCompatActivity {
             Toast.makeText(this, "Error: "+ e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
 
-
     }
 
+    //Metodo para seleccionar que cosas mandaremos a los detalles de las recetas
     private void seleccionarReceta(){
 
         lvtrecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -127,20 +131,6 @@ public class RecetasActivity extends AppCompatActivity {
             }
         });
     }
-    
-//    public void DarLike(View view){
-//
-//        botonlike.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent detalles = new Intent(getApplicationContext(), OpcionesActivity.class);
-//                startActivity(detalles);
-//            }
-//        });
-//
-//    }
-
-
 
 
 

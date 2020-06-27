@@ -31,6 +31,7 @@ public class FavoritasActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para iniciliazar controles
     private void InicializarControles(){
 
         lvrecetasfavoritas = (ListView)findViewById(R.id.lvrecetasfavoritas);
@@ -38,7 +39,9 @@ public class FavoritasActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para cargar el listview con mis recetas favoritas que he guardado anteriormente
     public void LoadListViewFavoritas(View view){
+        //Abrimos la BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 

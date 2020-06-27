@@ -27,6 +27,7 @@ public class AgregarActivity extends AppCompatActivity {
         this.InicializarControles();
     }
 
+    //Metodo para inicializar Controles
     private void InicializarControles() {
 
         txtproducto     = (EditText)findViewById(R.id.txtproducto);
@@ -41,6 +42,7 @@ public class AgregarActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para registrar las recetas
     public void RegistrarRecetas(View view){
         //Hemos creado la conexion con la base de datos
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "dbparcial3.db", null, 1);
